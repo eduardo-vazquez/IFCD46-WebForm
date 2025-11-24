@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Antlr.Runtime.Tree.TreeWizard;
 
 namespace IFCD46_WebForm
 {
@@ -13,21 +14,13 @@ namespace IFCD46_WebForm
         {
             if (Session["User"] == null)
             {
-                phMensaje.Controls.Add(new Literal { Text = "<p>Inicia sesión</p>" });
-                LblVisitas.Visible = false; // ocultamos el contador
+                LblVisitas.Text = "Inicia Sesion";
+                return;
             }
-            else
-            {
-                int visitas = 0;
-                if (Session["visitas"] != null)
-                    visitas = (int)Session["visitas"];
 
-                visitas++; // incrementar contador
-                Session["visitas"] = visitas;
+            Session["visitas"] = Convert.ToInt32(Session["visitas"] ?? 0) + 1;
 
-                phMensaje.Controls.Clear(); // eliminamos mensaje si existía
-                LblVisitas.Text = $"Has visitado esta página {visitas} veces.";
-                LblVisitas.Visible = true;
-            }
+            LblVisitas.Text = $"Has visitado esta página {Session["visitas"]} veces.";
         }
+    }
 }
