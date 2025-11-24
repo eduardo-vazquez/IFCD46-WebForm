@@ -53,13 +53,16 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/MisVisitas">Mis Visitas</a></li>
+                        <%= (Session["role"] != null && Session["role"].ToString() == "admin") 
+                            ? $"<li class='nav-item'><a class='nav-link' href='{ResolveUrl("~/Admin.aspx")}'>Admin</a></li>" 
+                            : "" %>
                     </ul>
 
                     <!-- Login a la derecha -->
                     <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
                         <li class="nav-item">
                             <%= (Session["User"] != null) 
-                                ? $"<span class='nav-link'>{Session["Saludo"]}, {Session["User"]}</span>" 
+                                ? $"<span class='nav-link'>{Session["Saludo"]}, {Session["User"]}</span>"
                                 : $"<a class='nav-link' href='{ResolveUrl("~/Login.aspx")}'>Login</a>" %>
                         </li>
                     </ul>

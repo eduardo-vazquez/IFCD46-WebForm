@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace IFCD46_WebForm
 {
-    public partial class SiteMaster : MasterPage
+    public partial class Admin : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-        protected void Logout(object sender, EventArgs e)
-        {
-            Session["User"] = null;
         }
     }
 }

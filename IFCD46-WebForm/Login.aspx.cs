@@ -16,9 +16,15 @@ namespace IFCD46_WebForm
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (TxtUser.Text == "admin" && TxtPassword.Text == "admin")
+            if (TxtUser.Text == TxtPassword.Text )
             { 
-                Session["User"] = "admin";
+                if (TxtUser.Text == "admin")
+                    Session["role"] = "admin";
+                else
+                    Session["role"] = "user";
+
+
+                Session["User"] = TxtUser.Text;
 
                 int hora = DateTime.Now.Hour;
                 if ( hora < 12)
