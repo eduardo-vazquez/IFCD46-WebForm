@@ -12,8 +12,7 @@
             <asp:TextBox ID="TxtPassword" runat="server"></asp:TextBox>
     </p>
     <p>
-        <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
-        <asp:Button ID="BtnLogout" runat="server" OnClick="BtnLogout_Click" Text="Logout" />
+        <asp:Button ID="Button1" runat="server" Text="Login" OnClick="LoginUser" />
     </p>
     </main>
 </asp:Content>

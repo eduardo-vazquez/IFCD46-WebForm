@@ -14,35 +14,37 @@ namespace IFCD46_WebForm
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void LoginUser(object sender, EventArgs e)
         {
-            if (TxtUser.Text == TxtPassword.Text )
-            { 
-                if (TxtUser.Text == "admin")
-                    Session["role"] = "admin";
+            string username = TxtUser.Text;
+            string password = TxtPassword.Text;
+
+            using (EmployeesDataContext db = new EmployeesDataContext())
+            {
+                var user = db.employees
+                    .FirstOrDefault(u => u.username == username && u.pwd == password);
+                if (user != null)
+                {
+                    Session["User"] = user.first_name;   
+                }
+
+                if (DateTime.Now.Hour < 12)
+                {
+                    Session["Saludo"] = "Buenos días";
+                }
+                else if (DateTime.Now.Hour > 20)
+                {
+                    Session["Saludo"] = "Buenas tardes";
+                }
                 else
-                    Session["role"] = "user";
-
-
-                Session["User"] = TxtUser.Text;
-
-                int hora = DateTime.Now.Hour;
-                if ( hora < 12)
                 {
-                    Session["saludo"] = "Buenos días";
+                    Session["Saludo"] = "Buenas tardes";
                 }
-                else if (hora < 20)
-                {
-                    Session["saludo"] = "Buenas tardes";
-                }
-                else
-                {
-                    Session["saludo"] = "Buenas noches";
-                }
+                Response.Redirect("Default.aspx");
             }
         }
 
-        protected void BtnLogout_Click(object sender, EventArgs e)
+        protected void Logout(object sender, EventArgs e)
         {
             Session["User"] = null;
         }

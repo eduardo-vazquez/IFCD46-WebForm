@@ -52,18 +52,23 @@
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MisVisitas">Mis Visitas</a></li>
-                        <%= (Session["role"] != null && Session["role"].ToString() == "admin") 
-                            ? $"<li class='nav-item'><a class='nav-link' href='{ResolveUrl("~/Admin.aspx")}'>Admin</a></li>" 
-                            : "" %>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MisVisitas" id="MisVisitasLink" visible="false">Mis Visitas</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/EmployeesList" id="EmployeesListLink" visible="false">Employees List</a></li>
+                        <li class='nav-item'><a class='nav-link' runat="server" href="~/Admin.aspx" id="AdminLink" visible="false">Admin</a></li>
+                       
                     </ul>
 
                     <!-- Login a la derecha -->
                     <ul class="navbar-nav ms-auto mb-2 mb-sm-0">
                         <li class="nav-item">
-                            <%= (Session["User"] != null) 
-                                ? $"<span class='nav-link'>{Session["Saludo"]}, {Session["User"]}</span>"
-                                : $"<a class='nav-link' href='{ResolveUrl("~/Login.aspx")}'>Login</a>" %>
+                            <a id="LoginLink" class="nav-link" runat="server" href="~/Login">Login</a></li>
+                        <li class="nav-item">
+                            <asp:Label ID="LblUser" runat="server" CssClass="nav-link" Visible="false" />
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton ID="LinkLogout" runat="server" CssClass="nav-link ms-2" OnClick="Logout" Visible="false">
+                                Logout
+                            </asp:LinkButton>
                         </li>
                     </ul>
                 </div>
