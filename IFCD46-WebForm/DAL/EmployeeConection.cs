@@ -23,10 +23,10 @@ namespace IFCD46_WebForm
     using System.Reflection;
 
 
-    public partial class EmployeesDataContext : System.Data.Linq.DataContext
+    public partial class EmployeeDataContext 
     {
 
-        public EmployeesDataContext() :
+        public EmployeeDataContext() :
                 base(ConfigurationManager.ConnectionStrings["EduardoEmployeesConectionString"].ConnectionString, mappingSource)
         {
             OnCreated();

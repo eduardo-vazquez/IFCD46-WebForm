@@ -18,7 +18,7 @@ namespace IFCD46_WebForm
 
         private void LoadEmployees()
         {
-            using (EmployeesDataContext db = new EmployeesDataContext())
+            using (EmployeeDataContext db = new EmployeeDataContext())
             {
                 // Traer todos los empleados
                 var employees = db.employees

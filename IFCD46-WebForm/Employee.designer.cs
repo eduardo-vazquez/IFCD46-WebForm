@@ -23,7 +23,7 @@ namespace IFCD46_WebForm
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="EduardoEmployees")]
-	public partial class EmployeesDataContext : System.Data.Linq.DataContext
+	public partial class EmployeeDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -35,25 +35,25 @@ namespace IFCD46_WebForm
     partial void Deleteemployee(employee instance);
     #endregion
 		
-		public EmployeesDataContext(string connection) : 
+		public EmployeeDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeesDataContext(System.Data.IDbConnection connection) : 
+		public EmployeeDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeesDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public EmployeeDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public EmployeesDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public EmployeeDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -96,7 +96,9 @@ namespace IFCD46_WebForm
 		
 		private string _username;
 		
-		private string _pwd;
+		private System.Data.Linq.Binary _passwordHash;
+		
+		private System.Data.Linq.Binary _passwordSalt;
 		
 		private EntitySet<employee> _employees;
 		
@@ -128,8 +130,10 @@ namespace IFCD46_WebForm
     partial void Ondepartment_idChanged();
     partial void OnusernameChanging(string value);
     partial void OnusernameChanged();
-    partial void OnpwdChanging(string value);
-    partial void OnpwdChanged();
+    partial void OnpasswordHashChanging(System.Data.Linq.Binary value);
+    partial void OnpasswordHashChanged();
+    partial void OnpasswordSaltChanging(System.Data.Linq.Binary value);
+    partial void OnpasswordSaltChanged();
     #endregion
 		
 		public employee()
@@ -363,22 +367,42 @@ namespace IFCD46_WebForm
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pwd", DbType="VarChar(50)")]
-		public string pwd
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_passwordHash", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary passwordHash
 		{
 			get
 			{
-				return this._pwd;
+				return this._passwordHash;
 			}
 			set
 			{
-				if ((this._pwd != value))
+				if ((this._passwordHash != value))
 				{
-					this.OnpwdChanging(value);
+					this.OnpasswordHashChanging(value);
 					this.SendPropertyChanging();
-					this._pwd = value;
-					this.SendPropertyChanged("pwd");
-					this.OnpwdChanged();
+					this._passwordHash = value;
+					this.SendPropertyChanged("passwordHash");
+					this.OnpasswordHashChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_passwordSalt", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary passwordSalt
+		{
+			get
+			{
+				return this._passwordSalt;
+			}
+			set
+			{
+				if ((this._passwordSalt != value))
+				{
+					this.OnpasswordSaltChanging(value);
+					this.SendPropertyChanging();
+					this._passwordSalt = value;
+					this.SendPropertyChanged("passwordSalt");
+					this.OnpasswordSaltChanged();
 				}
 			}
 		}
