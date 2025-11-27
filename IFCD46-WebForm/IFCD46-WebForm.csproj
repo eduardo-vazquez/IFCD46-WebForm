@@ -154,12 +154,13 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Admin.aspx" />
-    <Content Include="Employee.dbml">
+    <Content Include="DAL\Employee.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Employee.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Employee.dbml.layout">
+    <Content Include="EmployeeDetails.aspx" />
+    <None Include="DAL\Employee.dbml.layout">
       <DependentUpon>Employee.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
@@ -196,7 +197,7 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Employee.designer.cs">
+    <Compile Include="DAL\Employee.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Employee.dbml</DependentUpon>
@@ -278,6 +279,13 @@
     </Compile>
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

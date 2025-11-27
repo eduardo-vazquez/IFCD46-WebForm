@@ -48,7 +48,7 @@
 
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                <a class="navbar-brand" runat="server" href="~/">App</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
                         aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,10 +57,10 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <!-- Menú principal a la izquierda -->
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Acerca de</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contacto</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MisVisitas" id="MisVisitasLink" visible="false">Mis Visitas</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/MisVisitas" id="MisVisitasLink" visible="false">Visit counter</a></li>
                         <li class="nav-item"><a class="nav-link" runat="server" href="~/EmployeesList" id="EmployeesListLink" visible="false">Employees List</a></li>
                         <li class='nav-item'><a class='nav-link' runat="server" href="~/Admin.aspx" id="AdminLink" visible="false">Admin</a></li>
                        

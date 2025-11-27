@@ -23,6 +23,7 @@ namespace IFCD46_WebForm
 
             using (EmployeeDataContext db = new EmployeeDataContext())
             {
+                
                 // Buscar en la tabla employees el primer registro cuyo username y pwd coincidan
                 // con los valores proporcionados. Si no encuentra ninguno, devuelve null.
                 var user = db.employees.FirstOrDefault(emp => emp.email == usermail);
@@ -77,8 +78,7 @@ namespace IFCD46_WebForm
                     }
                     else
                     {
-                        // Mostrar mensaje de error
-                        // lblError.Text = "Contraseña incorrecta";
+                        // TODO: ACA TENGO QUE PONER UN MENSAJE DE ERROR
                     }
                 }
             }
@@ -92,7 +92,7 @@ namespace IFCD46_WebForm
 
             if (newPassword != repeatPassword)
             {
-                // Mostrar mensaje de error: las contraseñas no coinciden
+                // TODO: ACA TENGO QUE PONER UN MENSAJE DE ERROR
                 return;
             }
 

@@ -48,6 +48,14 @@ namespace IFCD46_WebForm
                     tr.Cells.Add(tdLastName);
                     tr.Cells.Add(tdSalary);
 
+                    // Dentro del foreach de LoadEmployees
+                    var tdAction = new System.Web.UI.HtmlControls.HtmlTableCell();
+                    var link = new System.Web.UI.HtmlControls.HtmlAnchor();
+                    link.HRef = $"EmployeeDetails.aspx?firstName={emp.}";
+                    link.InnerText = "Ver detalles";
+                    tdAction.Controls.Add(link);
+                    tr.Cells.Add(tdAction);
+
                     // Agregar fila al tbody
                     EmployeesRepeater.Controls.Add(tr);
                 }
